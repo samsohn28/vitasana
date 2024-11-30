@@ -1,0 +1,29 @@
+<%= form_with(model: workout) do |form| %>
+  <% if workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+      <% workout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <% if workout.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', workout, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if workout.persisted? %>
+      <%= link_to "Cancel", workout, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", workouts_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

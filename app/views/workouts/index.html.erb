@@ -1,0 +1,41 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Workouts</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_workout_path, class: 'btn btn-primary' do %>
+    Add New Workout
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @workouts.each do |workout| %>
+        <%= content_tag :tr, id: dom_id(workout), class: dom_class(workout) do %>
+          
+
+          
+          
+            <td><%= link_to 'Show', workout %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
